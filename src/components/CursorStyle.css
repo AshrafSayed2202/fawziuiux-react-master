@@ -1,0 +1,25 @@
+.cursor-outline{
+    background-color: #eee;
+    mix-blend-mode: difference;
+    top: 0;
+    left: 0;
+    border-radius: 100px;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    pointer-events: none;
+}
+.cursor-image{
+    position: fixed;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    pointer-events: none;
+    scale: 0;
+    opacity: 0;
+}
+@media (width < 765px) {
+    .cursor-outline,
+    .cursor-image{
+        display: none;
+    }
+}
