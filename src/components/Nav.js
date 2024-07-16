@@ -70,7 +70,7 @@ function Nav(props) {
             <div className="btn-container" onMouseEnter={(e) => { changeCursorSize('70px') }} onMouseLeave={(e) => { changeCursorSize('0px') }}>
                 <div className="email-container">
                     <FontAwesomeIcon icon="fa-solid fa-at" />
-                    <span className="email"><a href="mailto:info@fawziuiux.com">info@fawziuiux.com</a></span>
+                    <span className="email"><a href={`mailto:${props.contact.email}`}>{props.contact.email}</a></span>
                 </div>
                 <motion.span
                     className="magnet-btn"
@@ -151,8 +151,8 @@ function Nav(props) {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.7, delay: 0.7 }}
                         className="menu-contacts">
-                        <div><a href="https://wa.me/201143637341" target="_blanc">+20 114 363 7341</a></div>
-                        <div><a href="mailto:info@fawziuiux.com">info@fawziuiux.com</a></div>
+                        <div><a href={`https://wa.me/${props.contact.phone}`} target="_blanc">{props.contact.phone}</a></div>
+                        <div><a href={`mailto:${props.contact.email}`}>{props.contact.email}</a></div>
                         <p>If in doubt. reach out.</p>
                     </motion.div>
                     <div>
@@ -160,10 +160,10 @@ function Nav(props) {
                             initial={{ opacity: 0, y: 300 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.7 }}>
-                            <li><a href="https://www.instagram.com/fawziuiux" target="_blanc">Instagram</a></li>
-                            <li><a href="https://www.linkedin.com/in/fawzi-uiux" target="_blanc">Linkedin</a></li>
-                            <li><a href="https://www.behance.net/fawziuiux" target="_blanc">Behance</a></li>
-                            <li><a href="https://dribbble.com/fawziuiux" target="_blanc">Dribbble</a></li>
+                            <li><a href={props.contact.instagram} target="_blanc">Instagram</a></li>
+                            <li><a href={props.contact.linkedin} target="_blanc">Linkedin</a></li>
+                            <li><a href={props.contact.behance} target="_blanc">Behance</a></li>
+                            <li><a href={props.contact.dribbble} target="_blanc">Dribbble</a></li>
                         </motion.ul>
                     </div>
                 </div>

@@ -27,13 +27,6 @@ import three from '../assets/certficates/three.png'
 import four from '../assets/certficates/four.png'
 import PortfolioCard from '../components/PortfolioCard';
 
-import PortfolioCardOne from '../assets/portfolioCards/one.jpg';
-import PortfolioCardTwo from '../assets/portfolioCards/two.jpg';
-import PortfolioCardThree from '../assets/portfolioCards/three.jpg';
-import PortfolioCardFour from '../assets/portfolioCards/four.jpg';
-import PortfolioCardFive from '../assets/portfolioCards/five.jpg';
-import PortfolioCardSix from '../assets/portfolioCards/six.jpg';
-import PortfolioCardSeven from '../assets/portfolioCards/seven.jpg';
 
 import ClientComment from '../components/ClientComment';
 import clientOne from '../assets/clients/1.png';
@@ -50,16 +43,12 @@ import HireFigure from '../assets/HireFigure.png'
 import wave2 from '../assets/wave2.svg'
 import wave3 from '../assets/wave3.svg'
 
-import resume from '../assets/Resume.pdf'
 import SectionHeader from '../components/SectionHeader';
 
 import formWP from '../assets/formwp.png'
 import closeForm from '../assets/subtract.png'
 import rocketForm from '../assets/light.png'
 import verified from '../assets/verified.png'
-
-// import { useForm, ValidationError } from '@formspree/react';
-
 function FormPopup(props) {
     const [submitting, setSubmitting] = React.useState(false);
     const [succeeded, setSucceeded] = React.useState(false);
@@ -326,9 +315,9 @@ function AboutSection() {
             <AboutTitle name='Lead' />
             <motion.div className='about-text' ref={ref} style={{ opacity: scrollYProgress, translateY: translateProgres1 }} id='About'>
                 <motion.p className='greeting' style={{ translateX: translateProgres2, transition: '0.2s' }}>I'm Fawzi Sayed</motion.p>
-                <motion.p style={{ translateX: translateProgres2, transition: '0.3s' }} className='about-block'>An Ui/Ux designer and prodact designer. Passionate about crafting unforgettable experiences and providing companies with innovative, user-centric solutions for nearly a decade.</motion.p><br />
+                <motion.p style={{ translateX: translateProgres2, transition: '0.3s' }} className='about-block'>A Ui/Ux designer and product designer. Passionate about crafting unforgettable experiences and providing companies with innovative, user-centric solutions for nearly a decade.</motion.p><br />
                 <motion.p style={{ translateX: translateProgres2, transition: '0.4s' }} className='about-block'>Collaborating with global brands and agencies, I specialize in designing and developing websites and applications that prioritize interaction, motion, and visual engagement.</motion.p><br />
-                <motion.p style={{ translateX: translateProgres2, transition: '0.5s' }} className='about-block'>My work has been on converting complex issues into straightforward, user-friendly solutions that are accessible to everyone.</motion.p><br />
+                <motion.p style={{ translateX: translateProgres2, transition: '0.5s' }} className='about-block'>My work has been on converting complex issues into straightforward, user-friendly solutions that were accessible to everyone.</motion.p><br />
                 <motion.p style={{ translateY: translateProgres3, }} className='get-in' onMouseEnter={(e) => { changeCursorSize('60px') }} onMouseLeave={(e) => { changeCursorSize('0px') }}>Get in touch <FontAwesomeIcon className='contact-icon' icon="fa-solid fa-arrow-right" /></motion.p>
             </motion.div>
         </div >
@@ -431,20 +420,21 @@ function SkillsAndEducation(props) {
         </div>
     )
 }
-function PortfolioSection() {
+function PortfolioSection(props) {
+    const { portfolio } = props
     return (
         <div className='portfolio-container' id='Portfolio'>
             <div className='section-header-container'>
                 <SectionHeader header='Portfolio & Projects' sub='Latest projects' />
             </div>
             <div className='portfolio-cards-container'>
-                <PortfolioCard gridArea='1 / 1 / 2 / 2' delay={1} projectName='Nike App Mockup' link='https://www.behance.net/gallery/164852187/Nike-App-Mockup' projectImage={PortfolioCardOne} />
-                <PortfolioCard gridArea='1 / 2 / 3 / 4' delay={0.5} projectName='Sosurbari Restaurant Website' link='https://www.behance.net/gallery/194448341/Sosurbari-Restaurant-Website' projectImage={PortfolioCardTwo} />
-                <PortfolioCard gridArea='1 / 4 / 3 / 5' delay={0.7} projectName='Sosurbari Restaurant Website' link='https://www.behance.net/gallery/194278205/Sosurbari-Restaurant-Website' projectImage={PortfolioCardThree} />
-                <PortfolioCard gridArea='2 / 1 / 3 / 2' delay={1.3} projectName='Check Quick Attendance App' link='https://www.behance.net/gallery/170062939/Bank-Card-Landing-Page' projectImage={PortfolioCardFour} />
-                <PortfolioCard gridArea='3 / 1 / 4 / 2' delay={0.3} projectName='Vr online store' link='https://www.behance.net/gallery/170062939/Bank-Card-Landing-Page' projectImage={PortfolioCardFive} />
-                <PortfolioCard gridArea='3 / 2 / 4 / 3' delay={1.4} projectName='Travel Agency Booking website' link='https://www.behance.net/gallery/169207495/Travel-Agency-Booking-website' projectImage={PortfolioCardSix} />
-                <PortfolioCard gridArea='3 / 3 / 4 / 5' delay={0.9} projectName='Easter Co Law Firm' link='https://www.behance.net/gallery/190985241/Easter-Co-Law-Firm' projectImage={PortfolioCardSeven} />
+                <PortfolioCard gridArea='1 / 1 / 2 / 2' delay={1.0} projectName={portfolio[0].title} link={portfolio[0].url} projectImage={portfolio[0].image_path} />
+                <PortfolioCard gridArea='2 / 1 / 3 / 2' delay={1.3} projectName={portfolio[1].title} link={portfolio[1].url} projectImage={portfolio[1].image_path} />
+                <PortfolioCard gridArea='3 / 1 / 4 / 2' delay={0.3} projectName={portfolio[2].title} link={portfolio[2].url} projectImage={portfolio[2].image_path} />
+                <PortfolioCard gridArea='3 / 2 / 4 / 3' delay={1.4} projectName={portfolio[3].title} link={portfolio[3].url} projectImage={portfolio[3].image_path} />
+                <PortfolioCard gridArea='3 / 3 / 4 / 5' delay={0.9} projectName={portfolio[4].title} link={portfolio[4].url} projectImage={portfolio[4].image_path} />
+                <PortfolioCard gridArea='1 / 2 / 3 / 4' delay={0.5} projectName={portfolio[5].title} link={portfolio[5].url} projectImage={portfolio[5].image_path} />
+                <PortfolioCard gridArea='1 / 4 / 3 / 5' delay={0.7} projectName={portfolio[6].title} link={portfolio[6].url} projectImage={portfolio[6].image_path} />
             </div>
         </div>
     )
@@ -548,6 +538,7 @@ function ClientsComments() {
     )
 }
 function PricingSection(props) {
+    const { pricing } = props
     const [switchState, setSwitchState] = React.useState(false);
     const firstGroupRef = React.useRef(null)
     const secondGroupRef = React.useRef(null)
@@ -574,20 +565,22 @@ function PricingSection(props) {
                 <SectionHeader header='Pricing' sub='Advantage' />
                 <input className="react-switch-checkbox" id={`pricing-switch`} type="checkbox" value={switchState} onChange={() => { setSwitchState(!switchState) }} />
                 <label className="react-switch-label" htmlFor={`pricing-switch`}>
-                    <p className='label-switch-text'>Per Time</p>
+                    <p className='label-switch-text'>Hourly</p>
                     <span className="react-switch-button pricing" />
-                    <p className='label-switch-text'>Per Secreen</p>
+                    <p className='label-switch-text'>Monthly</p>
                 </label>
             </div>
-            <div className='pricing-group' ref={firstGroupRef} >
-                <PricingCard toggleForm={props.toggleForm} head='Screen' sub='Pay per screen' note='Cancel Anytime' noteType='text' price='5~10/Screen' priceType='price' btnType='normal' delay={0.3} />
-                <PricingCard toggleForm={props.toggleForm} head='Project' sub='Pay per project' note='Cancel Anytime' noteType='text' price='250/Project' priceType='price' btnType='normal' delay={0.7} />
-                <PricingCard toggleForm={props.toggleForm} head='Not Sure?' sub='Check the skill' note='You can order' noteType='text' price='1 free task' priceType='text' btnType='trans' delay={1} />
-            </div>
             <div className='pricing-group' ref={secondGroupRef} >
-                <PricingCard toggleForm={props.toggleForm} head='1 Month' sub='Part time' note='Cancel Anytime' noteType='text' price='500/mo' priceType='price' btnType='normal' delay={0.3} />
-                <PricingCard toggleForm={props.toggleForm} head='1 Month' sub='Full time' note=' Save $200' noteType='round' price='800/mo' priceType='price' btnType='normal' delay={0.7} />
-                <PricingCard toggleForm={props.toggleForm} head='1 Year' sub='Paid monthly' note='Save $600' noteType='round' price='9000/yr' priceType='price' btnType='normal' delay={1} />
+                <PricingCard toggleForm={props.toggleForm} priceType='hourly' plan='Basic' head='Basic Plan' sub1='' sub2='/Hourly' sub3={`billed daily as $${pricing[0].periodically}`} price={pricing[0].price} delay={0.3} />
+                <PricingCard toggleForm={props.toggleForm} priceType='hourly' plan='Standard' head='Standard Plan' sub1='Most Popular' sub2='/Hourly' sub3={`billed daily as $${pricing[1].periodically}`} price={pricing[1].price} delay={0.6} />
+                <PricingCard toggleForm={props.toggleForm} priceType='hourly' plan='Pro' head='Pro Plan' sub1='Limited Edits' sub2='/Hourly' sub3={`billed daily as $${pricing[2].periodically}`} price={pricing[2].price} delay={0.9} />
+                <PricingCard toggleForm={props.toggleForm} priceType='hourly' plan='Unlimited' head='Unlimited Plan' sub1='Unlimited Edits' sub2='/Hourly' sub3={`billed daily as $${pricing[3].periodically}`} price={pricing[3].price} delay={1.2} />
+            </div>
+            <div className='pricing-group' ref={firstGroupRef} >
+                <PricingCard toggleForm={props.toggleForm} isFree='yes' priceType='monthly' plan='Basic' head='Not Sure?' sub1='' sub2='/No Time' sub3={`billed daily as $${pricing[4].periodically}`} price={pricing[4].price} delay={0.3} />
+                <PricingCard toggleForm={props.toggleForm} isFree='no' priceType='monthly' plan='Standard' head='Part Time' sub1='Small Agencies' sub2='/Monthly' sub3={`billed daily as $${pricing[5].periodically}`} price={pricing[5].price} delay={0.6} />
+                <PricingCard toggleForm={props.toggleForm} isFree='no' priceType='monthly' plan='Pro' head='Full Time' sub1='Medium companies' sub2='/Monthly' sub3={`billed daily as $${pricing[6].periodically}`} price={pricing[6].price} delay={0.9} />
+                <PricingCard toggleForm={props.toggleForm} isFree='no' priceType='monthly' plan='Unlimited' head='Team Lead' sub1='International' sub2='/Monthly' sub3={`billed daily as $${pricing[7].periodically}`} price={pricing[7].price} delay={1.2} />
             </div>
         </div>
     )
@@ -613,7 +606,7 @@ function HireMeSection(props) {
         </div>
     )
 }
-function FooterSection() {
+function FooterSection(props) {
     const { setCursorSize } = useCursor()
     return (
         <footer className='footer-container'>
@@ -632,16 +625,16 @@ function FooterSection() {
                 </div>
                 <div className='footer-contact'>
                     <h2>contact us</h2>
-                    <p><FontAwesomeIcon icon="fa-regular fa-file-pdf" /><a href={resume} target='_blanc'>View CV</a></p>
-                    <p><FontAwesomeIcon icon="fa-solid fa-phone" /><a href='https://wa.me/201143637341' target='_blanc'>+20 114 363 7341</a></p>
-                    <p><FontAwesomeIcon icon="fa-regular fa-envelope" /><a href='mailto:info@fawziuiux.com'>info@fawziuiux.com</a></p>
+                    <p><FontAwesomeIcon icon="fa-regular fa-file-pdf" /><a href={props.contact.cv} target='_blanc'>View CV</a></p>
+                    <p><FontAwesomeIcon icon="fa-solid fa-phone" /><a href={`https://wa.me/${props.contact.phone}`} target='_blanc'>{props.contact.phone}</a></p>
+                    <p><FontAwesomeIcon icon="fa-regular fa-envelope" /><a href={`mailto:${props.contact.email}`}>{props.contact.email}</a></p>
                 </div>
                 <div className='footer-socials'>
                     <h2>Socials</h2>
-                    <a href='https://www.instagram.com/fawziuiux' target='_blanc'><FontAwesomeIcon icon="fa-brands fa-instagram" /></a>
-                    <a href='https://www.linkedin.com/in/fawzi-uiux' target='_blanc'><FontAwesomeIcon icon="fa-brands fa-linkedin-in" /></a>
-                    <a href='https://www.behance.net/fawziuiux' target='_blanc'><FontAwesomeIcon icon="fa-brands fa-behance" /></a>
-                    <a href='https://dribbble.com/fawziuiux' target='_blanc'><FontAwesomeIcon icon="fa-brands fa-dribbble" /></a>
+                    <a href={props.contact.instagram} target='_blanc'><FontAwesomeIcon icon="fa-brands fa-instagram" /></a>
+                    <a href={props.contact.linkedin} target='_blanc'><FontAwesomeIcon icon="fa-brands fa-linkedin-in" /></a>
+                    <a href={props.contact.behance} target='_blanc'><FontAwesomeIcon icon="fa-brands fa-behance" /></a>
+                    <a href={props.contact.dribbble} target='_blanc'><FontAwesomeIcon icon="fa-brands fa-dribbble" /></a>
                 </div>
             </div>
             <div className='copyright'>
@@ -652,30 +645,60 @@ function FooterSection() {
     )
 }
 function Home() {
-    const homeRef = React.useRef(null)
-    React.useEffect(() => {
-        homeRef.current.animate({
-            opacity: 1
-        }, { duration: 1200, fill: "forwards" })
-    })
     const [formShow, setFormShow] = React.useState(false)
     function toggleForm() {
         setFormShow(!formShow)
     }
+    const [contact, setContact] = React.useState([]);
+    const [pricing, setPricing] = React.useState([]);
+    const [portfolio, setPortfolio] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
+    const [errors, setError] = React.useState(null);
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                const contactResponse = fetch('https://dashboard.fawziuiux.com/api/data');
+                const pricingResponse = fetch('https://dashboard.fawziuiux.com/api/pricing');
+                const portfolioResponse = fetch('https://dashboard.fawziuiux.com/api/portfolio');
+                const [contactResult, pricingResult, portfolioResult] = await Promise.all([
+                    contactResponse, pricingResponse, portfolioResponse
+                ]);
+                if (!contactResult.ok || !pricingResult.ok || !portfolioResult.ok) {
+                    throw new Error('Failed to fetch data from one or more APIs');
+                }
+                const contactData = await contactResult.json();
+                const pricingData = await pricingResult.json();
+                const portfolioData = await portfolioResult.json();
+                setContact(contactData);
+                setPricing(pricingData);
+                setPortfolio(portfolioData);
+            } catch (error) {
+                setError(error.message);
+                console.log(errors);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [errors]);
+    if (loading) return <span className='loader'></span>;
     return (
         <CursorProvider>
             <Cursor />
-            <div ref={homeRef} style={{ opacity: 0 }}>
+            <div className='home-load'>
                 {formShow ? <FormPopup toggleForm={toggleForm} /> : null}
-                <Nav toggleForm={toggleForm} />
+                <Nav toggleForm={toggleForm} contact={contact.data} />
                 <HeroSection />
                 <AboutSection />
                 <SkillsAndEducation toggleForm={toggleForm} />
-                <PortfolioSection />
+                <PortfolioSection portfolio={portfolio.data} />
                 <ClientsComments />
-                <PricingSection toggleForm={toggleForm} />
+                <PricingSection toggleForm={toggleForm} pricing={pricing.data} />
                 <HireMeSection toggleForm={toggleForm} />
-                <FooterSection />
+                <FooterSection contact={contact.data} />
             </div>
         </CursorProvider>
     )
